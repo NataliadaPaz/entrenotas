@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 20/02/2026 às 20:16
+-- Tempo de geração: 27/02/2026 às 20:59
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -33,6 +33,15 @@ CREATE TABLE `banner` (
   `subtitulo` varchar(255) DEFAULT NULL,
   `imagem` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Despejando dados para a tabela `banner`
+--
+
+INSERT INTO `banner` (`id`, `titulo`, `subtitulo`, `imagem`) VALUES
+(2, '', '', '27-02-2026-14-46-08-53147574662_62a190f430_k.jpg'),
+(3, '', '', '27-02-2026-14-46-13-Aula-Inaugural-Escola-de-Musica.jpg'),
+(5, '', '', '27-02-2026-14-46-23-Daim-14-scaled.jpg');
 
 -- --------------------------------------------------------
 
@@ -71,7 +80,7 @@ CREATE TABLE `config` (
 --
 
 INSERT INTO `config` (`id`, `nome`, `email`, `senha`, `telefone`, `endereco`, `logo`, `icone`, `instagram`, `twitter`, `linkedin`, `facebook`, `youtube`, `cor`, `titulo_servicos`, `subtitulo_servicos`, `titulo_trabalhos`, `subtitulo_trabalhos`, `titulo_equipe`, `subtitulo_equipe`, `titulo_contato`, `subtitulo_contato`, `texto_rodape`) VALUES
-(1, 'Entre Notas', 'natydapaz1017@gmail.com', '123', '(11)96087-9925', '', 'logo.png', 'icone.png', NULL, NULL, NULL, NULL, NULL, '#00c1c1', NULL, NULL, NULL, NULL, NULL, NULL, 'Contate-nos', 'Preencha os Campos abaixo para entrar em contato conosco!', NULL);
+(1, 'Entre Notas', 'natydapaz1017@gmail.com', '123', '(11) 96087-9925', '', 'logo.png', 'icone.png', '', '', '', '', '', '#00c1c1', NULL, NULL, NULL, NULL, NULL, NULL, 'Contate-nos', 'Preencha os Campos abaixo para entrar em contato conosco!', '');
 
 -- --------------------------------------------------------
 
@@ -116,6 +125,13 @@ CREATE TABLE `sobre` (
   `video` varchar(100) DEFAULT NULL,
   `exibir` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Despejando dados para a tabela `sobre`
+--
+
+INSERT INTO `sobre` (`id`, `titulo`, `subtitulo`, `descricao`, `imagem`, `video`, `exibir`) VALUES
+(1, 'Sobre', 'Subtitulo caso Exista', 'Descrição da página Sobre', 'sem-foto.jpg', NULL, 'Imagem');
 
 -- --------------------------------------------------------
 
@@ -181,7 +197,7 @@ ALTER TABLE `trabalhos`
 -- AUTO_INCREMENT de tabela `banner`
 --
 ALTER TABLE `banner`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `config`
@@ -205,7 +221,7 @@ ALTER TABLE `servicos`
 -- AUTO_INCREMENT de tabela `sobre`
 --
 ALTER TABLE `sobre`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `trabalhos`
