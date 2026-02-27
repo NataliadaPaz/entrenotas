@@ -86,7 +86,7 @@ require_once("cabecalho.php");
 		<div class="col-md-3">
 			<div class="mb-3">
 				<label for="exampleFormControlInput1" class="form-label">Cor Template Hexagonal</label>
-				<input name="cor_template" type="text" class="form-control" placeholder="Cor Template Hexagonal" value="<?php echo $cor_sistema ?>">
+				<input name="cor" type="text" class="form-control" placeholder="Cor Template Hexagonal" value="<?php echo $cor_sistema ?>">
 			</div>
 		</div>
 	</div>
@@ -121,7 +121,7 @@ require_once("cabecalho.php");
 				</div>
 			</div>
 			<div class="col-md-2 col-4">
-				<div><img id="target-logo" src="../img/illumaLogo.png" width="110px" style="margin-top: 15px"></div>
+				<div><img id="target-logo" src="../img/logo.png" width="110px" style="margin-top: 15px"></div>
 			</div>
 
 			<div class="col-md-4 col-8">
@@ -131,7 +131,7 @@ require_once("cabecalho.php");
 				</div>
 			</div>
 			<div class="col-md-2 col-4">
-				<div><img id="target-icone" src="../img/illumaIcone.png" width="50px" style="margin-top: 25px"></div>
+				<div><img id="target-icone" src="../img/icone.png" width="50px" style="margin-top: 25px"></div>
 			</div>
 
 		</div>
