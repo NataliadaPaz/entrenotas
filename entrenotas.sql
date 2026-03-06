@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 27/02/2026 às 20:59
+-- Tempo de geração: 06/03/2026 às 20:29
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -80,7 +80,7 @@ CREATE TABLE `config` (
 --
 
 INSERT INTO `config` (`id`, `nome`, `email`, `senha`, `telefone`, `endereco`, `logo`, `icone`, `instagram`, `twitter`, `linkedin`, `facebook`, `youtube`, `cor`, `titulo_servicos`, `subtitulo_servicos`, `titulo_trabalhos`, `subtitulo_trabalhos`, `titulo_equipe`, `subtitulo_equipe`, `titulo_contato`, `subtitulo_contato`, `texto_rodape`) VALUES
-(1, 'Entre Notas', 'natydapaz1017@gmail.com', '123', '(11) 96087-9925', '', 'logo.png', 'icone.png', '', '', '', '', '', '#00c1c1', NULL, NULL, NULL, NULL, NULL, NULL, 'Contate-nos', 'Preencha os Campos abaixo para entrar em contato conosco!', '');
+(1, 'Entre Notas', 'natydapaz1017@gmail.com', '123', '(11) 96087-9925', 'R. Francisco A Zeiler, 20 - Jardim Juliana, Ferraz de Vasconcelos - SP, 08502-410', 'logo.png', 'icone.png', '', '', '', '', '', '#00c1c1', 'teste', 'testando', 'Trabalhos', '', 'Equipe', 'testando', 'Contate-nos', 'Preencha os Campos abaixo para entrar em contato conosco!', '');
 
 -- --------------------------------------------------------
 
@@ -94,6 +94,13 @@ CREATE TABLE `equipe` (
   `cargo` varchar(50) NOT NULL,
   `imagem` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Despejando dados para a tabela `equipe`
+--
+
+INSERT INTO `equipe` (`id`, `nome`, `cargo`, `imagem`) VALUES
+(1, 'were', 'ewrwer', '06-03-2026-14-10-10-teste.jpg');
 
 -- --------------------------------------------------------
 
@@ -109,6 +116,13 @@ CREATE TABLE `servicos` (
   `video` varchar(100) DEFAULT NULL,
   `exibir` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Despejando dados para a tabela `servicos`
+--
+
+INSERT INTO `servicos` (`id`, `titulo`, `descricao`, `imagem`, `video`, `exibir`) VALUES
+(1, 'teste', '', 'sem-foto.jpg', 'https://www.youtube.com/embed/mna8mZP9eSg?si=-t-kVaWIrYsQOT5j', 'Vídeo');
 
 -- --------------------------------------------------------
 
@@ -148,6 +162,14 @@ CREATE TABLE `trabalhos` (
   `exibir` varchar(20) NOT NULL,
   `link` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Despejando dados para a tabela `trabalhos`
+--
+
+INSERT INTO `trabalhos` (`id`, `titulo`, `descricao`, `imagem`, `video`, `exibir`, `link`) VALUES
+(1, 'Aulas de Violão', 'rwerwefRWFAFAWDFWEFWEFAEFADSASFAWFAEFSDVSFwfSDFADFBADFGAFwefWfadf32er15547u46etfzdvxcQDfagrtsgjxfc', '06-03-2026-14-13-09-piano.jpg', '', 'Imagem', ''),
+(2, 'Aulas de Guitarra', '', '06-03-2026-14-23-23-guitarra.jpg', '', 'Imagem', '');
 
 --
 -- Índices para tabelas despejadas
@@ -209,13 +231,13 @@ ALTER TABLE `config`
 -- AUTO_INCREMENT de tabela `equipe`
 --
 ALTER TABLE `equipe`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `servicos`
 --
 ALTER TABLE `servicos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `sobre`
@@ -227,7 +249,7 @@ ALTER TABLE `sobre`
 -- AUTO_INCREMENT de tabela `trabalhos`
 --
 ALTER TABLE `trabalhos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
