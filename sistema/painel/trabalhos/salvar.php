@@ -1,14 +1,14 @@
 <?php 
 require_once("../../conexao.php");
+$tabela = 'trabalhos';
+$id = $_POST['id'];
 $titulo = $_POST['titulo'];
-$subtitulo = $_POST['subtitulo'];
-$video = $_POST['video'];
 $descricao = $_POST['descricao'];
+$video = $_POST['video'];
 $exibir = $_POST['exibir'];
+$link = $_POST['link'];
 
-
-
-$query = $pdo->query("SELECT * FROM sobre");
+$query = $pdo->query("SELECT * FROM $tabela where id = '$id'");
 $res = $query->fetchAll(PDO::FETCH_ASSOC);
 if(@count($res) > 0){
 	$foto = $res[0]['imagem'];
@@ -16,11 +16,12 @@ if(@count($res) > 0){
 	$foto = "sem-foto.jpg";
 }
 
+
 //SCRIPT PARA SUBIR FOTO NO SERVIDOR
 $nome_img = date('d-m-Y H:i:s') .'-'.@$_FILES['foto']['name'];
 $nome_img = preg_replace('/[ :]+/' , '-' , $nome_img);
 
-$caminho = '../../img/' .$nome_img;
+$caminho = '../../img/trabalhos/' .$nome_img;
 
 $imagem_temp = @$_FILES['foto']['tmp_name']; 
 
@@ -30,7 +31,7 @@ if(@$_FILES['foto']['name'] != ""){
 	
 			//EXCLUO A FOTO ANTERIOR
 			if($foto != "sem-foto.jpg"){
-				@unlink('../../img/'.$foto);
+				@unlink('../../img/trabalhos/'.$foto);
 			}
 
 			$foto = $nome_img;
@@ -42,8 +43,13 @@ if(@$_FILES['foto']['name'] != ""){
 	}
 }
 
+if($id == ""){
+	$pdo->query("INSERT INTO $tabela SET titulo = '$titulo', descricao = '$descricao', imagem = '$foto', video = '$video', exibir = '$exibir', link = '$link'");
+}else{
+	$pdo->query("UPDATE $tabela SET titulo = '$titulo', descricao = '$descricao', imagem = '$foto', video = '$video', exibir = '$exibir', link = '$link' WHERE id = '$id'");
+}
 
-$pdo->query("UPDATE sobre SET titulo = '$titulo', subtitulo = '$subtitulo', descricao = '$descricao', imagem = '$foto', video = '$video', exibir = '$exibir'");
+
 
 echo 'Salvo com Sucesso';
 

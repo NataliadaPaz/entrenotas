@@ -1,6 +1,6 @@
 <?php 
 require_once("../../conexao.php");
-$tabela = 'servicos';
+$tabela = 'trabalhos';
 
 $query = $pdo->query("SELECT * FROM $tabela order by id desc");
 $res = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -15,6 +15,7 @@ echo <<<HTML
 	<th>Título</th>	
 	<th class="esc">Vídeo</th>
 	<th class="esc">Exibir</th>
+	<th class="esc">Link</th>	
 	<th class="esc">Imagem</th>			
 	<th>Ações</th>
 	</tr> 
@@ -29,21 +30,25 @@ for($i=0; $i < $total_reg; $i++){
 		$imagem = $res[$i]['imagem'];
 		$video = $res[$i]['video'];
 		$exibir = $res[$i]['exibir'];
+		$link = $res[$i]['link'];
 	
 		$descricaoF = mb_strimwidth($descricao, 0, 80, "...");	
+		$linkF = mb_strimwidth($link, 0, 50, "...");
 
 		//retirar caracter
-		$descricao = str_replace(array('"'), ' ** ', $descricao);
+		$descricao = str_replace(array('"'), ' ** ', $descricao);	
+
 		
 echo <<<HTML
 <tr>
 <td>{$titulo}</td>
 <td class="esc">{$video}</td>
 <td class="esc">{$exibir}</td>
-<td class="esc"><img src="../img/servicos/{$imagem}" width="30px"></td>
+<td class="esc"><a href="{$link}" target="_blank">{$linkF}</a></td>
+<td class="esc"><img src="../img/trabalhos/{$imagem}" width="30px"></td>
 
 <td>
-	<big><a href="#" onclick="editar('{$id}','{$titulo}', '{$descricao}', '{$imagem}', '{$video}', '{$exibir}')" title="Editar Dados"><i class="bi bi-pencil-square text-primary"></i></a></big>
+	<big><a href="#" onclick="editar('{$id}','{$titulo}', '{$descricao}', '{$imagem}', '{$video}', '{$exibir}', '{$link}')" title="Editar Dados"><i class="bi bi-pencil-square text-primary"></i></a></big>
 
 	<big><a href="#" onclick="excluir('{$id}','{$titulo}')" title="Excluir Registro"><i class="bi bi-trash text-danger"></i></a></big>
 
@@ -71,32 +76,29 @@ HTML;
  ?>
 
 
-
-
-
   
 
 
-
 <script type="text/javascript">
-	function editar(id, titulo, descricao, foto, video, exibir){
+	function editar(id, titulo, descricao, foto, video, exibir, link){
 
 		for (let letra of descricao){  				
 					if (letra === '*'){
 						descricao = descricao.replace(' ** ', '"')
 					}			
 				}
-
+				
 		$('#id').val(id);
 		$('#titulo').val(titulo);
 		nicEditors.findEditor("area").setContent(descricao);
 		$('#video').val(video);	
 		$('#exibir').val(exibir).change();	
+		$('#link').val(link);	
 		
 		$('#titulo_inserir').text('Editar Registro');
 		$('#modalForm').modal('show');
 		$('#foto').val('');
-		$('#target').attr('src','../img/servicos/' + foto);
+		$('#target').attr('src','../img/trabalhos/' + foto);
 	}
 
 		function excluir(id, titulo){
@@ -115,7 +117,8 @@ HTML;
 		$('#exibir').val('Imagem').change();		
 		$('#titulo').val('');		
 		$('#foto').val('');
-		$('#target').attr('src','../img/servicos/sem-foto.jpg');
+		$('#link').val('');
+		$('#target').attr('src','../img/trabalhos/sem-foto.jpg');
 	}
 
 </script>
