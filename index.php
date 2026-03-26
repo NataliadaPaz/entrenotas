@@ -34,7 +34,7 @@ require_once("sistema/conexao.php")
 
 .back-to-top:focus {
   background: <?php echo $cor_sistema ?>
-  color: #fff;
+  color: #ffffff;
 }
 
 .back-to-top:hover {
