@@ -28,7 +28,7 @@ require_once("sistema/conexao.php")
 /* Back to top button */
 .back-to-top {
   background: <?php echo $cor_sistema ?>
-  color: #fff;
+  color: #ffffff;
 }
 
 
@@ -39,7 +39,7 @@ require_once("sistema/conexao.php")
 
 .back-to-top:hover {
   background: #019090;
-  color: #fff;
+  color: #ffffff;
 }
 
 .navbar-default {
